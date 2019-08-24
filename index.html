@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fighting Monster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet"  href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div id="app" class="container-fluid">
+        <div class="row mb-2 ">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <span class="btn btn-success btn-md">PLAYER</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" :style="{width: playerHealth + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                    {{ playerHealth }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <span class="btn btn-danger btn-md">MONSTER</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"  :style="{width: monsterHealth + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                    {{ monsterHealth }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2" v-if="!gameIsRunning">
+            <div class="col-sm-12 text-center">
+                <div class="alert alert-primary mb-0" role="alert">
+                    <button id="start-game" type="button" class="btn btn-secondary" @click="startGame">START NEW GAME</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2" v-else>
+                <div class="col-sm-12 text-center">
+                    <div class="alert alert-primary mb-0" role="alert">
+                        <button id="attack" @click="attack" type="button" class="btn btn-secondary">ATTACK</button>
+                        <button id="special-attack" @click="specialAttack" type="button" class="btn btn-secondary">SPECICAL ATTACK</button>
+                        <button id="heal" @click="heal" type="button" class="btn btn-secondary">HEAL</button>
+                        <button id="give-up" @click="giveUp" type="button" class="btn btn-secondary">GIVE UP</button>
+                    </div>
+                </div>
+            </div>
+        <div class="row mb-2 log" v-if="turns.length > 0">
+            <div class="col-sm-12">
+                <div class="alert alert-success mb-0" role="alert">
+                    <div class="row mb-2">
+                            <div class="col-sm-8 offset-md-2">
+                                <div class="alert alert-warning mb-0 text-center" role="alert">
+                                    <ul>
+                                        <li v-for="turn in turns"
+                                            :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}">
+                                            {{ turn.text }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
