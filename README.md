@@ -1,4 +1,3 @@
-# GameVueJS
 # A Simple Game of VueJS
 # Author: Truong Giang, Huynh
 
