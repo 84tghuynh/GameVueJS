@@ -1,6 +1,6 @@
 # A Simple Game of VueJS
 
-Using bootstrap framework to style: Card, Button, Alert, Progress Bar
+Using bootstrap framework to style: Card, Button, Alert, Progress Ba. Support responsive for any devices.
 
 Using VueJS to develop Event Handler.
 
