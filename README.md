@@ -1,4 +1,4 @@
-# A Simple Game developed by VueJS
+# A Simple Game developed by using VueJS
 
 Using bootstrap framework to style: Card, Button, Alert, Progress Bar. Support responsive for any devices.
 
